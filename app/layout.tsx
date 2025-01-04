@@ -1,8 +1,10 @@
-import { Inter } from 'next/font/google';
-import './globals.css';
-import { NhostClientProvider } from '@/components/providers/nhost-provider';
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { NhostClientProvider } from "@/components/providers/nhost-provider";
+import { Navbar } from "@/components/Navbar";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -10,12 +12,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <NhostClientProvider>
-          <main className="min-h-screen bg-gray-950">
-            {children}
-          </main>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+            <div className="min-h-screen bg-background text-foreground">
+              <Navbar />
+              <main>{children}</main>
+            </div>
+          </ThemeProvider>
         </NhostClientProvider>
       </body>
     </html>
