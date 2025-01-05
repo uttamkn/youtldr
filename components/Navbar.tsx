@@ -33,7 +33,7 @@ export function Navbar() {
       <div className="flex items-center space-x-4">
         <Link href="/" className="flex items-center space-x-2">
           <VideoIcon className="h-6 w-6 text-black dark:text-white" />
-          <span className="text-xl font-bold text-teal-600 dark:text-purple-400">
+          <span className="text-xl font-bold text-teal-400 dark:text-red-400">
             YouTLDR
           </span>
         </Link>

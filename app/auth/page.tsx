@@ -103,12 +103,12 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-teal-400 via-cyan-500 to-indigo-600 dark:from-gray-900 dark:via-gray-800 dark:to-black">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-cyan-500 to-indigo-600 dark:from-gray-900 dark:via-gray-800 dark:to-black">
       <div className="absolute inset-0 bg-white dark:bg-black opacity-10 z-0"></div>
       <div className="relative z-10 w-full max-w-md px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-white dark:text-gray-100 text-center mb-6 drop-shadow-lg">
           Welcome to{" "}
-          <span className="text-teal-300 dark:text-purple-300">YouTLDR</span>
+          <span className="text-teal-300 dark:text-red-300">YouTLDR</span>
         </h1>
         <p className="text-lg text-white dark:text-gray-300 text-center mb-8 drop-shadow">
           Simplify and summarize your content effortlessly
@@ -116,7 +116,7 @@ export default function AuthPage() {
 
         <Card className="w-full bg-white/90 dark:bg-gray-900/90 text-gray-800 dark:text-gray-100 shadow-xl rounded-lg backdrop-blur-sm">
           <CardHeader>
-            <CardTitle className="text-3xl font-bold text-center text-teal-600 dark:text-purple-400">
+            <CardTitle className="text-3xl font-bold text-center text-teal-600 dark:text-red-400">
               Get Started
             </CardTitle>
             <CardDescription className="text-center text-gray-600 dark:text-gray-400">
@@ -128,13 +128,13 @@ export default function AuthPage() {
               <TabsList className="grid w-full grid-cols-2 bg-gray-300 dark:bg-gray-800 rounded-lg p-1">
                 <TabsTrigger
                   value="signin"
-                  className="data-[state=active]:bg-white data-[state=active]:text-teal-600 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-purple-400"
+                  className="data-[state=active]:bg-white data-[state=active]:text-teal-600 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-red-400"
                 >
                   Sign In
                 </TabsTrigger>
                 <TabsTrigger
                   value="signup"
-                  className="data-[state=active]:bg-white data-[state=active]:text-teal-600 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-purple-400"
+                  className="data-[state=active]:bg-white data-[state=active]:text-teal-600 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-red-400"
                 >
                   Sign Up
                 </TabsTrigger>
@@ -145,7 +145,7 @@ export default function AuthPage() {
                     <Input
                       type="email"
                       placeholder="Email"
-                      className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-teal-500 dark:focus:ring-purple-500 rounded-lg"
+                      className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-teal-500 dark:focus:ring-red-500 rounded-lg"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
@@ -153,14 +153,14 @@ export default function AuthPage() {
                     <Input
                       type="password"
                       placeholder="Password"
-                      className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-teal-500 dark:focus:ring-purple-500 rounded-lg"
+                      className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-teal-500 dark:focus:ring-red-500 rounded-lg"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
                     />
                     <Button
                       type="submit"
-                      className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1"
+                      className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-red-600 dark:hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1"
                       disabled={isLoading}
                     >
                       {isLoading ? "Signing In..." : "Sign In"}
@@ -189,7 +189,7 @@ export default function AuthPage() {
                     <Input
                       type="email"
                       placeholder="Email"
-                      className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-teal-500 dark:focus:ring-purple-500 rounded-lg"
+                      className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-teal-500 dark:focus:ring-red-500 rounded-lg"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
@@ -197,7 +197,7 @@ export default function AuthPage() {
                     <Input
                       type="password"
                       placeholder="Password"
-                      className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-teal-500 dark:focus:ring-purple-500 rounded-lg"
+                      className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-teal-500 dark:focus:ring-red-500 rounded-lg"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
@@ -205,14 +205,14 @@ export default function AuthPage() {
                     <Input
                       type="password"
                       placeholder="Confirm Password"
-                      className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-teal-500 dark:focus:ring-purple-500 rounded-lg"
+                      className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-teal-500 dark:focus:ring-red-500 rounded-lg"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       required
                     />
                     <Button
                       type="submit"
-                      className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1"
+                      className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-red-600 dark:hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1"
                       disabled={isLoading}
                     >
                       {isLoading ? "Signing Up..." : "Sign Up"}

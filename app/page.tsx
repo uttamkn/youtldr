@@ -14,10 +14,10 @@ import { ProtectedRoute } from "@/components/protected-route";
 export default function MainPage() {
   return (
     <ProtectedRoute>
-      <div className="bg-gray-100 dark:bg-black flex flex-col items-center justify-center min-h-screen p-4">
+      <div className="bg-gray-100 dark:bg-[#1f1f1f] flex flex-col items-center justify-center min-h-screen p-4">
         <Card className="bg-transparent border-none w-full max-w-2xl shadow-none text-card-foreground">
           <CardHeader>
-            <CardTitle className="text-teal-600 dark:text-purple-400 text-3xl font-bold text-center">
+            <CardTitle className="text-teal-400 dark:text-red-400 text-3xl font-bold text-center">
               YouTLDR
             </CardTitle>
             <CardDescription className="text-center">
@@ -27,10 +27,10 @@ export default function MainPage() {
           <CardContent>
             <div className="flex space-x-2 mb-4">
               <Input
-                placeholder="Paste YouTube URL here"
-                className="flex-grow"
+                placeholder="Paste the YouTube URL here"
+                className="flex-grow dark:bg-[#1f1f1f] border-2"
               />
-              <Button className="bg-teal-600 dark:bg-purple-400">
+              <Button className="bg-teal-600 dark:bg-red-800 dark:text-white font-bold">
                 Summarize
               </Button>
             </div>
