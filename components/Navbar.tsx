@@ -29,7 +29,7 @@ export function Navbar() {
   }
 
   return (
-    <nav className="absolute w-screen top-0 z-50 flex items-center justify-between px-6 py-4 bg-transparent backdrop-blur-sm shadow-lg transition-colors duration-300">
+    <nav className="absolute w-screen top-0 z-50 flex items-center justify-between px-6 py-4 bg-transparent backdrop-blur-sm shadow-sm transition-colors duration-300">
       <div className="flex items-center space-x-4">
         <Link href="/" className="flex items-center space-x-2">
           <VideoIcon className="h-6 w-6 text-black dark:text-white" />
