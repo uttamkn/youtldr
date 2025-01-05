@@ -15,7 +15,7 @@ export default function MainPage() {
   return (
     <ProtectedRoute>
       <div className="bg-gray-100 dark:bg-black flex flex-col items-center justify-center min-h-screen p-4">
-        <Card className="border-none w-full max-w-2xl bg-card text-card-foreground">
+        <Card className="bg-transparent border-none w-full max-w-2xl shadow-none text-card-foreground">
           <CardHeader>
             <CardTitle className="text-teal-600 dark:text-purple-400 text-3xl font-bold text-center">
               YouTLDR
