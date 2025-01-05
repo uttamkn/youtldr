@@ -12,8 +12,8 @@ import { useAuthenticationStatus } from "@nhost/nextjs";
 export function Navbar() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const { isAuthenticated } = useAuthenticationStatus();
   const router = useRouter();
+  const { isAuthenticated } = useAuthenticationStatus();
 
   useEffect(() => {
     setMounted(true);
@@ -29,48 +29,47 @@ export function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-700 dark:from-gray-900 dark:via-gray-800 dark:to-black shadow-lg">
-      <Link href="/" className="flex items-center space-x-3">
-        <VideoIcon className="h-6 w-6 text-white" />
-        <span className="text-2xl font-bold text-white tracking-wide">
-          YouTLDR
-        </span>
-      </Link>
-
-      <div className="flex items-center space-x-6">
+    <nav className="absolute w-screen top-0 z-50 flex items-center justify-between px-6 py-4 bg-transparent backdrop-blur-sm shadow-lg transition-colors duration-300">
+      <div className="flex items-center space-x-4">
+        <Link href="/" className="flex items-center space-x-2">
+          <VideoIcon className="h-6 w-6 text-black dark:text-white" />
+          <span className="text-xl font-bold text-teal-600 dark:text-purple-400">
+            YouTLDR
+          </span>
+        </Link>
+      </div>
+      <div className="flex items-center space-x-4">
         <Button
           variant="ghost"
           size="icon"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="text-white hover:text-yellow-400 focus:ring-2 focus:ring-purple-300 rounded-full"
+          className="text-white hover:text-yellow-400 focus:ring-2 focus:ring-purple-300 rounded-full bg-gray-800 bg-opacity-50 hover:bg-opacity-70"
           aria-label="Toggle theme"
         >
           {theme === "dark" ? (
-            <SunIcon className="h-6 w-6" />
+            <SunIcon className="h-5 w-5" />
           ) : (
-            <MoonIcon className="h-6 w-6" />
+            <MoonIcon className="h-5 w-5" />
           )}
+          <span className="sr-only">Toggle theme</span>
         </Button>
-
         {isAuthenticated ? (
           <Button
-            variant="default"
-            className="bg-white text-gray-900 hover:bg-gray-100 focus:ring-2 focus:ring-purple-300 rounded-full px-4 py-1"
+            variant="outline"
+            className="bg-gray-800 bg-opacity-50 hover:bg-opacity-70 text-white  focus:ring-2 focus:ring-purple-300 rounded-full px-4 py-1"
             onClick={handleLogout}
             aria-label="Logout"
           >
             Logout
           </Button>
         ) : (
-          <Link href="/auth">
-            <Button
-              variant="default"
-              className="bg-white text-gray-900 hover:bg-gray-100 focus:ring-2 focus:ring-purple-300 rounded-full px-4 py-1"
-              aria-label="Login"
-            >
-              Login
-            </Button>
-          </Link>
+          <Button
+            variant="outline"
+            className="bg-gray-800 bg-opacity-50 hover:bg-opacity-70 text-white  focus:ring-2 focus:ring-purple-300 rounded-full px-4 py-1"
+            aria-label="Login"
+          >
+            Login
+          </Button>
         )}
       </div>
     </nav>

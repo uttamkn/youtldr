@@ -14,10 +14,10 @@ import { ProtectedRoute } from "@/components/protected-route";
 export default function MainPage() {
   return (
     <ProtectedRoute>
-      <div className="bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-700 dark:from-gray-900 dark:via-gray-800 dark:to-black flex flex-col items-center justify-center min-h-[calc(100vh-64px)] p-4">
-        <Card className="w-full max-w-2xl bg-card text-card-foreground">
+      <div className="bg-gray-100 dark:bg-black flex flex-col items-center justify-center min-h-screen p-4">
+        <Card className="border-none w-full max-w-2xl bg-card text-card-foreground">
           <CardHeader>
-            <CardTitle className="text-3xl font-bold text-center">
+            <CardTitle className="text-teal-600 dark:text-purple-400 text-3xl font-bold text-center">
               YouTLDR
             </CardTitle>
             <CardDescription className="text-center">
@@ -30,16 +30,10 @@ export default function MainPage() {
                 placeholder="Paste YouTube URL here"
                 className="flex-grow"
               />
-              <Button>Summarize</Button>
+              <Button className="bg-teal-600 dark:bg-purple-400">
+                Summarize
+              </Button>
             </div>
-            <Card className="bg-muted p-4">
-              <CardTitle className="text-xl mb-2">Summary</CardTitle>
-              <p>
-                Your video summary will appear here. The AI-generated summary
-                will provide key points and main ideas from the YouTube video
-                you&apos;ve submitted.
-              </p>
-            </Card>
           </CardContent>
         </Card>
       </div>
