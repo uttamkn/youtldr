@@ -2,6 +2,35 @@
 import { nhost } from "./nhost";
 import { ApiKey, ApiKeyInput, VideoSummary } from "./types";
 
+export async function getSummary(url: string): Promise<VideoSummary> {
+  if (!url) {
+    throw new Error("URL is required");
+  }
+
+  const ACTION = `mutation ProcessYoutube {
+  getSummary(youtube_url: "${url}") {
+    id
+    title
+    youtubeUrl
+    description
+    summary
+  }
+}`;
+
+  try {
+    const { data, error } = await nhost.graphql.request(ACTION);
+
+    if (error) {
+      throw error;
+    }
+
+    return data.getSummary;
+  } catch (error) {
+    console.error("Error:", error);
+    throw error;
+  }
+}
+
 export async function getUserApiKeys(): Promise<ApiKey[]> {
   const { data, error } = await nhost.graphql.request(`
     query GetUserApiKeys {

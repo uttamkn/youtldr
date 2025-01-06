@@ -13,11 +13,9 @@ export interface ApiKeyInput {
 }
 
 export interface VideoSummary {
-  id: string;
-  user_id: string;
-  video_url: string;
-  video_title: string | null;
-  summary: string | null;
-  created_at: string;
-  updated_at: string;
+  description: String;
+  id: String;
+  summary: String;
+  title: String;
+  youtubeUrl: String;
 }
