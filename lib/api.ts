@@ -1,4 +1,3 @@
-//TODO: The save API function does not work.
 import { nhost } from "./nhost";
 import { ApiKey, ApiKeyInput, VideoSummary } from "./types";
 
@@ -31,6 +30,7 @@ export async function getSummary(url: string): Promise<VideoSummary> {
   }
 }
 
+//TODO: Save API functionality yet to be implemented
 export async function getUserApiKeys(): Promise<ApiKey[]> {
   const { data, error } = await nhost.graphql.request(`
     query GetUserApiKeys {
