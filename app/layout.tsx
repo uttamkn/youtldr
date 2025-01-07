@@ -18,12 +18,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <NhostClientProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-            <div className="min-h-screen w-screen bg-background text-foreground">
-              <SidebarProvider>
-                <Navbar />
-                <main>{children}</main>
-                <Toaster />
-              </SidebarProvider>
+            <div className="min-h-screen bg-background text-foreground">
+              <Navbar />
+              <main>{children}</main>
+              <Toaster />
             </div>
           </ThemeProvider>
         </NhostClientProvider>
