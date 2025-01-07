@@ -18,4 +18,5 @@ export interface VideoSummary {
   summary: String;
   title: String;
   youtubeUrl: String;
+  error: String;
 }

@@ -15,7 +15,7 @@ export function ApiKeysList() {
 
   useEffect(() => {
     loadApiKeys();
-  });
+  }, []);
 
   const loadApiKeys = async () => {
     try {
