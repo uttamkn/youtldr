@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import ReactMarkdown from "react-markdown";
 import {
   Card,
   CardHeader,
@@ -56,11 +57,6 @@ export default function MainPage() {
 Please check the URL and try again with a different video.`;
       const errorMessage = error.message || customErrorMsg;
       setError(errorMessage);
-      toast({
-        title: "Error",
-        description: errorMessage,
-        variant: "destructive",
-      });
     } finally {
       setLoading(false);
     }
@@ -106,7 +102,7 @@ Please check the URL and try again with a different video.`;
                           Processing
                         </>
                       ) : (
-                        "Get Summary"
+                        "Get"
                       )}
                     </Button>
                   </div>
@@ -136,9 +132,25 @@ Please check the URL and try again with a different video.`;
                       <h3 className="text-lg font-semibold mb-3 text-teal-600 dark:text-red-400">
                         Summary
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <ReactMarkdown
+                        className="prose dark:prose-dark"
+                        components={{
+                          h1: ({ node, ...props }) => (
+                            <h1 className="text-2xl font-bold" {...props} />
+                          ),
+                          h2: ({ node, ...props }) => (
+                            <h2 className="text-xl font-bold" {...props} />
+                          ),
+                          a: ({ node, ...props }) => (
+                            <a
+                              className="text-teal-600 hover:underline"
+                              {...props}
+                            />
+                          ),
+                        }}
+                      >
                         {summary}
-                      </p>
+                      </ReactMarkdown>
                     </div>
                   )}
                 </div>
