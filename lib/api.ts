@@ -1,5 +1,5 @@
 import { nhost } from "./nhost";
-import { ApiKey, ApiKeyInput, VideoSummary } from "./types";
+import { ApiKey, ApiKeyInput, VideoSummary, UserHistory } from "./types";
 
 const extractYoutubeId = (url: string) => {
   // Regex pattern that matches both youtu.be and youtube.com URLs
@@ -8,6 +8,29 @@ const extractYoutubeId = (url: string) => {
   const match = url.match(pattern);
   return match ? match[1] : null;
 };
+
+export async function getUserHistory(): Promise<UserHistory[]> {
+  const userId = nhost.auth.getUser()?.id;
+
+  if (!userId) {
+    throw new Error("User is not authenticated");
+  }
+
+  const { data, error } = await nhost.graphql.request(`
+    query GetUserHistory {
+      user_history(where: { userId: { _eq: "${userId}" } }) {
+        id
+        youtubeUrl
+        summary
+        title
+        description
+      }
+    }
+  `);
+
+  if (error) throw error;
+  return data.user_history;
+}
 
 export async function getSummary(url: string): Promise<VideoSummary> {
   if (!url) {
@@ -23,7 +46,7 @@ export async function getSummary(url: string): Promise<VideoSummary> {
   // Check if the summary exists in the database
   const QUERY = `
     query GetUserHistory {
-      user_history(where: { userId: { _eq: "${userId}" }, youtubeUrl: { _eq: "${extractYoutubeId(
+      user_history(where: { userId: { _eq: "${userId}" }, videoId: { _eq: "${extractYoutubeId(
     url
   )}" } }) {
         id
@@ -78,10 +101,11 @@ export async function getSummary(url: string): Promise<VideoSummary> {
 
     // Save the new summary in the database
     const INSERT_MUTATION = `
-  mutation InsertUserHistory($userId: uuid!, $youtubeUrl: String!, $summary: String!, $title: String!, $description: String!) {
+  mutation InsertUserHistory($userId: uuid!, $youtubeUrl: String!, $videoId: String!, $summary: String!, $title: String!, $description: String!) {
     insert_user_history(objects: {
       userId: $userId,
       youtubeUrl: $youtubeUrl,
+      videoId: $videoId,
       summary: $summary,
       title: $title,
       description: $description
@@ -96,7 +120,8 @@ export async function getSummary(url: string): Promise<VideoSummary> {
 
     const variables = {
       userId: userId,
-      youtubeUrl: summary.id,
+      youtubeUrl: summary.youtubeUrl,
+      videoId: summary.id,
       summary: summary.summary,
       title: summary.title,
       description: summary.description,

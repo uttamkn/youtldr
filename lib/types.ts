@@ -20,3 +20,13 @@ export interface VideoSummary {
   youtubeUrl: String;
   error: String;
 }
+
+export interface UserHistory {
+  id: string;
+  userId: string;
+  youtubeUrl: string;
+  videoId: string;
+  summary: string;
+  title: string;
+  description: string;
+}
