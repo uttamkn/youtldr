@@ -84,7 +84,7 @@ export function UserHistoryList() {
   }
 
   return (
-    <ScrollArea className="h-[calc(100vh-8rem)]">
+    <ScrollArea className="h-[calc(100vh-8rem)] p-3 bg-gray-50 dark:bg-gray-800">
       {userHistory.map((item) => (
         <Card key={item.id} className="mb-4">
           <CardHeader className="p-4">
