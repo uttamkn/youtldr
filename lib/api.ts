@@ -1,5 +1,5 @@
 import { nhost } from "./nhost";
-import { ApiKey, ApiKeyInput, VideoSummary, UserHistory } from "./types";
+import { VideoSummary, UserHistory } from "./types";
 
 const extractYoutubeId = (url: string) => {
   // Regex pattern that matches both youtu.be and youtube.com URLs
