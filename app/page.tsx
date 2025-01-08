@@ -87,12 +87,8 @@ Please check the URL and try again with a different video.`;
             <main className="flex-1 overflow-auto p-6 flex justify-center items-center w-full">
               <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-xl max-w-3xl w-full">
                 <CardHeader>
-                  <header className="flex w-full text-center items-center justify-center gap-10 p-4">
-                    <SidebarTrigger className="lg:hidden">
-                      <Button variant="outline" size="icon">
-                        <History className="h-6 w-6" />
-                      </Button>
-                    </SidebarTrigger>
+                  <header className="relative flex w-full text-center items-center justify-center p-4">
+                    <SidebarTrigger className="absolute left-4 lg:hidden" />
                     <h1 className="text-3xl font-bold text-teal-600 dark:text-red-400">
                       YouTLDR
                     </h1>
