@@ -106,6 +106,7 @@ Please check the URL and try again with a different video.`;
                           placeholder="Paste the YouTube URL here"
                           className="pl-10 pr-4 py-2 w-full bg-white dark:bg-gray-700 border-2 border-teal-200 dark:border-red-800 focus:border-teal-400 dark:focus:border-red-600 rounded-lg transition-all duration-300 ease-in-out focus:ring-2 focus:ring-teal-300 dark:focus:ring-red-500"
                           value={url}
+                          type="url"
                           onChange={(e) => setUrl(e.target.value)}
                           disabled={loading}
                         />
