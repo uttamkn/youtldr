@@ -71,12 +71,12 @@ Please check the URL and try again with a different video.`;
     <ProtectedRoute>
       <SidebarProvider>
         <div className="flex h-screen w-screen">
-          <Sidebar className="w-64 lg:pt-16 flex-shrink-0 bg-gray-50 dark:bg-gray-800 border-r dark:border-gray-800">
+          <Sidebar className="w-64 min-pt-14 flex-shrink-0 bg-gray-50 dark:bg-gray-800 border-r dark:border-gray-800">
             <SidebarHeader className="p-4 flex-row justify-start items-center flex border-b dark:border-gray-800 dark:bg-gray-800">
-              <History />
-              <h2 className="text-2xl font-bold text-teal-600 dark:text-red-400">
+              <h2 className="text-xl font-bold text-teal-600 dark:text-red-400">
                 History
               </h2>
+              <History className="w-5 h-6" />
             </SidebarHeader>
             <SidebarContent>
               <UserHistoryList />
@@ -88,14 +88,14 @@ Please check the URL and try again with a different video.`;
               <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-xl max-w-3xl w-full">
                 <CardHeader>
                   <header className="flex w-full text-center items-center justify-center gap-10 p-4">
-                    <h1 className="text-3xl font-bold text-teal-600 dark:text-red-400">
-                      YouTLDR
-                    </h1>
                     <SidebarTrigger className="lg:hidden">
                       <Button variant="outline" size="icon">
                         <History className="h-6 w-6" />
                       </Button>
                     </SidebarTrigger>
+                    <h1 className="text-3xl font-bold text-teal-600 dark:text-red-400">
+                      YouTLDR
+                    </h1>
                   </header>
                   <CardDescription className="text-center text-gray-600 dark:text-gray-300">
                     Get quick summaries of YouTube videos

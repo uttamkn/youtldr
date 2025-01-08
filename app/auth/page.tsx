@@ -103,7 +103,7 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-cyan-500 to-indigo-600 dark:from-gray-900 dark:via-gray-800 dark:to-black">
+    <div className="min-h-screen min-pt-16 flex flex-col items-center justify-center bg-gradient-to-br from-white via-cyan-500 to-indigo-600 dark:from-gray-900 dark:via-gray-800 dark:to-black">
       <div className="absolute inset-0 bg-white dark:bg-black opacity-10 z-0"></div>
       <div className="relative z-10 w-full max-w-md px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-white dark:text-gray-100 text-center mb-6 drop-shadow-lg">
