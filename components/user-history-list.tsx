@@ -74,12 +74,9 @@ export function UserHistoryList() {
 
   if (userHistory.length === 0) {
     return (
-      <Alert>
-        <AlertTitle>No History</AlertTitle>
-        <AlertDescription>
-          You haven&apos;t summarized any videos yet.
-        </AlertDescription>
-      </Alert>
+      <div className="p-4 text-center">
+        <p className="text-sm text-muted-foreground">No history available.</p>
+      </div>
     );
   }
 

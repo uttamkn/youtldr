@@ -71,7 +71,7 @@ Please check the URL and try again with a different video.`;
     <ProtectedRoute>
       <SidebarProvider>
         <div className="flex h-screen w-screen">
-          <Sidebar className="w-64 min-pt-14 flex-shrink-0 bg-gray-50 dark:bg-gray-800 border-r dark:border-gray-800">
+          <Sidebar className="w-64 pt-14 flex-shrink-0 bg-gray-50 dark:bg-gray-800 border-r dark:border-gray-800">
             <SidebarHeader className="p-4 flex-row justify-start items-center flex border-b dark:border-gray-800 dark:bg-gray-800">
               <h2 className="text-xl font-bold text-teal-600 dark:text-red-400">
                 History
