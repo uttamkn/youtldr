@@ -58,6 +58,7 @@ export default function MainPage() {
 • The YouTube URL is invalid
 • The video doesn't have captions/transcripts enabled
 • The video is private or unavailable
+• The video is too long
 
 Please check the URL and try again with a different video.`;
       const errorMessage = error.message || customErrorMsg;
