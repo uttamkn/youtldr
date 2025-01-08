@@ -83,7 +83,7 @@ Please check the URL and try again with a different video.`;
             </SidebarContent>
           </Sidebar>
 
-          <div className="flex-1 pt-16 flex w-full flex-col overflow-hidden bg-gradient-to-br from-teal-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+          <div className="flex-1 pt-16 lg:pt-0 flex w-full flex-col overflow-hidden bg-gradient-to-br from-teal-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
             <main className="flex-1 overflow-auto p-6 flex justify-center items-center w-full">
               <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-xl max-w-3xl w-full">
                 <CardHeader>
