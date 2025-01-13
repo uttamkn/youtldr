@@ -8,7 +8,7 @@ YouTLDR is a web application that uses AI agents to generate concise and accurat
    - Secure authentication using [Nhost's backend service](https://nhost.io/).
 
 2. **Automated Workflow**  
-   - Designed and implemented a full workflow using [n8n](https://n8n.io/), enabling seamless backend processes.
+   - Designed and implemented a full workflow using [n8n](https://n8n.io/).
      ![image](https://github.com/user-attachments/assets/7cdb8a14-43e2-4c6e-9cf7-c0bf87090edb)
 
 
