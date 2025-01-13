@@ -1,14 +1,16 @@
-# YouTLDR - AI-Powered YouTube Video Summarization
+# YouTLDR - Get TL;DR for Any YouTube Video.
 
-YouTLDR is a web application that leverages AI agents to generate concise and accurate summaries of YouTube videos. Built with cutting-edge technologies, this project simplifies content consumption by providing easy access to video summaries tailored to each user's needs.
+YouTLDR is a web application that uses AI agents to generate concise and accurate summaries of YouTube videos.
 
 ## Features
 
 1. **Authentication**  
-   - Secure authentication set up using [Nhost's backend service](https://nhost.io/).
+   - Secure authentication using [Nhost's backend service](https://nhost.io/).
 
 2. **Automated Workflow**  
    - Designed and implemented a full workflow using [n8n](https://n8n.io/), enabling seamless backend processes.
+     ![image](https://github.com/user-attachments/assets/7cdb8a14-43e2-4c6e-9cf7-c0bf87090edb)
+
 
 3. **AI Summarization**  
    - Integrated the OpenRouter node within the n8n workflow to fetch summaries using the free Gemini model.
@@ -24,9 +26,6 @@ YouTLDR is a web application that leverages AI agents to generate concise and ac
 
 7. **Error Handling**  
    - Comprehensive error handling for almost all possible scenarios, ensuring a smooth user experience.
-
-8. **Responsive UI**  
-   - Developed a user-friendly, responsive interface using the Bolt design framework.
 
 ## Heads Up
 
@@ -44,6 +43,6 @@ YouTLDR is a web application that leverages AI agents to generate concise and ac
 - **Frontend:** Nextjs 
 - **Backend:** Nhost, Hasura, and n8n
 - **AI:** OpenRouter (Gemini model)
-- **Database:** User-specific data management via Hasura actions
+- **Database:** User-specific data management via Hasura actions (graphql)
 
 GitHub: [uttamkn/YouTLDR](https://github.com/uttamkn/YouTLDR)
