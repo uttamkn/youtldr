@@ -112,7 +112,7 @@ export default function AuthPage() {
       });
       if (error) throw error;
       setSuccessMessage(
-        "Successfully signed up! Please check your email to verify your account.",
+        "Successfully signed up! Please check your email to verify your account."
       );
     } catch (error: any) {
       setError(error.message);
@@ -180,7 +180,7 @@ export default function AuthPage() {
                     />
                     <Button
                       type="submit"
-                      className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-red-600 dark:hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition transform hover:-translate-y-1"
+                      className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-red-600 dark:hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md"
                       disabled={isLoading}
                     >
                       {isLoading ? "Signing In..." : "Sign In"}
