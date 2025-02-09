@@ -11,7 +11,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { GithubIcon } from "lucide-react";
+import { GithubIcon, Chrome } from "lucide-react";
 import { nhost } from "@/lib/nhost";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -75,6 +75,25 @@ export default function AuthPage() {
     setIsLoading(false);
   };
 
+  const handleGoogleSignIn = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const { session, error } = await nhost.auth.signIn({
+        provider: "google",
+      });
+      if (error) throw error;
+      if (session) {
+        router.push("/");
+      }
+    } catch (error: any) {
+      setError(error.message);
+    }
+
+    setIsLoading(false);
+  };
+
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -93,7 +112,7 @@ export default function AuthPage() {
       });
       if (error) throw error;
       setSuccessMessage(
-        "Successfully signed up! Please check your email to verify your account."
+        "Successfully signed up! Please check your email to verify your account.",
       );
     } catch (error: any) {
       setError(error.message);
@@ -113,7 +132,6 @@ export default function AuthPage() {
         <p className="text-lg text-white dark:text-gray-300 text-center mb-8 drop-shadow">
           Simplify and summarize your content effortlessly
         </p>
-
         <Card className="w-full bg-white/90 dark:bg-gray-900/90 text-gray-800 dark:text-gray-100 shadow-xl rounded-lg backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-3xl font-bold text-center text-teal-600 dark:text-red-400">
@@ -123,6 +141,7 @@ export default function AuthPage() {
               Sign in or create an account to continue
             </CardDescription>
           </CardHeader>
+
           <CardContent>
             <Tabs defaultValue="signin" className="w-full">
               <TabsList className="grid w-full grid-cols-2 bg-gray-300 dark:bg-gray-800 rounded-lg p-1">
@@ -139,6 +158,7 @@ export default function AuthPage() {
                   Sign Up
                 </TabsTrigger>
               </TabsList>
+
               <TabsContent value="signin">
                 <form onSubmit={handleSignIn}>
                   <div className="grid gap-4 mt-4">
@@ -160,29 +180,40 @@ export default function AuthPage() {
                     />
                     <Button
                       type="submit"
-                      className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-red-600 dark:hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1"
+                      className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-red-600 dark:hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition transform hover:-translate-y-1"
                       disabled={isLoading}
                     >
                       {isLoading ? "Signing In..." : "Sign In"}
                     </Button>
                   </div>
                 </form>
+
                 <div className="flex items-center justify-center my-4">
                   <span className="text-gray-500 dark:text-gray-400 mx-2">
                     or
                   </span>
                 </div>
-                <div>
+
+                <div className="flex flex-col gap-4">
                   <Button
                     onClick={handleGitHubSignIn}
-                    className="w-full bg-gray-800 text-white hover:bg-gray-900 font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
+                    className="w-full flex items-center justify-center gap-2 border border-gray-300 dark:border-gray-700 bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-100 font-medium py-2 px-4 rounded-lg transition duration-300"
                     disabled={isLoading}
                   >
-                    <GithubIcon className="mr-2 h-4 w-4" />
-                    Sign In with GitHub
+                    <GithubIcon className="h-5 w-5" />
+                    <span>Continue with GitHub</span>
+                  </Button>
+                  <Button
+                    onClick={handleGoogleSignIn}
+                    className="w-full flex items-center justify-center gap-2 border border-gray-300 dark:border-gray-700 bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-100 font-medium py-2 px-4 rounded-lg transition duration-300"
+                    disabled={isLoading}
+                  >
+                    <Chrome className="h-5 w-5" />
+                    <span>Continue with Google</span>
                   </Button>
                 </div>
               </TabsContent>
+
               <TabsContent value="signup">
                 <form onSubmit={handleSignUp}>
                   <div className="grid gap-4 mt-4">
@@ -212,7 +243,7 @@ export default function AuthPage() {
                     />
                     <Button
                       type="submit"
-                      className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-red-600 dark:hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1"
+                      className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-red-600 dark:hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition transform hover:-translate-y-1"
                       disabled={isLoading}
                     >
                       {isLoading ? "Signing Up..." : "Sign Up"}
@@ -222,6 +253,7 @@ export default function AuthPage() {
               </TabsContent>
             </Tabs>
           </CardContent>
+
           <CardFooter className="mt-4">
             {error && (
               <p className="text-red-500 text-sm text-center w-full">{error}</p>
